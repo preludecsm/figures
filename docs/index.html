@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Your figures</title>
+<style>
+:root{--bg:#12100e;--ink:#ece6dc;--muted:#a8a096;--edge:#2b2724;--gold:#c9a84a}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);
+ color:var(--ink);font:16px/1.6 -apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
+ padding:24px}
+.card{width:100%;max-width:26rem;border:1px solid var(--edge);border-radius:10px;padding:28px}
+h1{font:600 1.18rem/1.3 Georgia,"Times New Roman",serif;margin:0 0 6px}
+p{color:var(--muted);font-size:.9rem;margin:0 0 18px}
+label{display:block;font-size:.74rem;letter-spacing:.07em;text-transform:uppercase;
+ color:var(--muted);margin-bottom:7px}
+input{width:100%;padding:11px 12px;font-size:1rem;color:var(--ink);background:#1b1815;
+ border:1px solid var(--edge);border-radius:6px}
+input:focus{outline:none;border-color:var(--gold)}
+button{width:100%;margin-top:14px;padding:11px;font-size:.95rem;font-weight:600;
+ color:#12100e;background:var(--gold);border:0;border-radius:6px;cursor:pointer}
+button[disabled]{opacity:.55;cursor:default}
+.msg{min-height:1.3em;margin:12px 0 0;font-size:.85rem}
+.err{color:#d98c7a}
+@media (prefers-color-scheme:light){
+ :root{--bg:#faf8f4;--ink:#231f1b;--muted:#6d655c;--edge:#ddd6ca}
+ input{background:#fff}button{color:#fff;background:#8a6f1f}}
+</style></head><body>
+<div class="card">
+  <h1>Your figures</h1>
+  <p>Encrypted. Enter the passphrase I sent you separately.</p>
+  <form id="f" autocomplete="off">
+    <label for="pw">Passphrase</label>
+    <input id="pw" type="password" autocomplete="current-password" autofocus>
+    <button id="go" type="submit">Unlock</button>
+    <p class="msg" id="m"></p>
+  </form>
+</div>
+<script type="application/json" id="payload">{"v":1,"iter":600000,"salt":"bSH6irslDZHLRgAhs8p5ZA==","iv":"phmWquRKVMD5KKwO","ct":"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"}</script>
+<script>
+(function(){
+ var P = JSON.parse(document.getElementById('payload').textContent);
+ var KEY = 'cs-pass';
+ var f = document.getElementById('f'), pw = document.getElementById('pw'),
+     go = document.getElementById('go'), m = document.getElementById('m');
+ function raw(b64){
+   var s = atob(b64), a = new Uint8Array(s.length);
+   for (var i = 0; i < s.length; i++) a[i] = s.charCodeAt(i);
+   return a;
+ }
+ async function open_(pass){
+   var km = await crypto.subtle.importKey(
+     'raw', new TextEncoder().encode(pass), 'PBKDF2', false, ['deriveKey']);
+   var key = await crypto.subtle.deriveKey(
+     {name:'PBKDF2', salt: raw(P.salt), iterations: P.iter, hash:'SHA-256'},
+     km, {name:'AES-GCM', length:256}, false, ['decrypt']);
+   // AES-GCM authenticates: a wrong passphrase throws here rather than
+   // yielding garbage, so this doubles as the password check.
+   var buf = await crypto.subtle.decrypt(
+     {name:'AES-GCM', iv: raw(P.iv)}, key, raw(P.ct));
+   return new TextDecoder().decode(buf);
+ }
+ function show(html){
+   document.open(); document.write(html); document.close();
+ }
+ async function attempt(pass, quiet){
+   go.disabled = true;
+   m.className = 'msg'; m.textContent = quiet ? 'Unlocking…' : 'Checking…';
+   try {
+     var html = await open_(pass);
+     try { sessionStorage.setItem(KEY, pass); } catch(e){}
+     show(html);
+   } catch(e){
+     try { sessionStorage.removeItem(KEY); } catch(_){}
+     go.disabled = false;
+     if (quiet){ m.textContent = ''; return; }
+     m.className = 'msg err';
+     m.textContent = 'That passphrase does not open this page.';
+     pw.select();
+   }
+ }
+ f.addEventListener('submit', function(e){
+   e.preventDefault();
+   if (pw.value) attempt(pw.value, false);
+ });
+ if (!window.crypto || !crypto.subtle){
+   m.className = 'msg err';
+   m.textContent = 'This browser cannot decrypt the page. Try Safari, Chrome or Firefox.';
+   go.disabled = true;
+ } else {
+   var saved = null;
+   try { saved = sessionStorage.getItem(KEY); } catch(e){}
+   if (saved) attempt(saved, true);
+ }
+})();
+</script></body></html>
